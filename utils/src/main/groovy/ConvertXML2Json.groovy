@@ -39,7 +39,15 @@ View createView (node) {
 
 Property createProperty (attribute) {
 
-    def name = attribute.key.localPart;
+    def name = "";
+	if( attribute.key instanceof String )
+	{
+		name = attribute.key;
+		
+	}else
+	{
+		name = attribute.key.localPart;
+	}
     def type = "string";
     def value =  attribute.value;
 
